@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>The AJAXson 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="request-gif.js"></script>
+    <script src="request-gif.js"></script>
 </head>
+
 <body>
-    <h1>The AJAXson 5</h1>
+    <div class="page-header">
+        <h1>The AJAXson 5</h1>
+    </div>
 
-    <form id="form-gif-request" />
-        <label>What kind of Jackson 5 related gif do you want?</label>
-        <input name="tag" type="text"/>
-        <input type="submit" value="Get my Gif!" />
-    </form>
+    <div class="content-container">
+        <form id="form-gif-request">
+            <div class="what-gif">
+                <tr><label>What kind of Jackson 5 related gif do you want?</label></tr>
+                <tr><br></tr>
+                <tr><input name="tag" id="tag" type="text" required/></tr>
+            </div>
+            <div class="captcha">
+                <tr><label>Prove you are not a robot by answering this riddle:</label></tr>
+                <tr><br></tr>
+                <div class="captcha-block">
+                    <tr><input name="captcha" id="captcha" class="captcha-left" type="text" required/>
+                        <text class="captcha-right">Jacksons are better than one.</text></tr>
+                </div>
+                <tr><br></tr>
+                <tr><text id="caperror" hidden="true"></text></tr>
+            </div>
+            <br>
+            <div class="sub-btn-container"><button type="submit" class="sub-btn">Get my Gif!</button></div>
+        </form>
 
-    <img id="gif" src="" hidden="true"/>
-    <p id="feedback" hidden="true`"></p>
+        <div class="vertical-divider"></div>
+
+        <div class="output-container">
+            <img id="gif" src="" hidden="true" />
+            <p id="feedback" hidden="true"></p>
+        </div>
+    </div>
+
+    <script src="request-gif.js"></script>
 
 </body>
+
 </html>
