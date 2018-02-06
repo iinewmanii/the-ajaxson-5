@@ -79,7 +79,10 @@
 }
 .sub-btn {
     display: inline-block;
+    position: relative;
     cursor: pointer;
+    text-decoration: none;
+    outline: none;
     padding: 4px 8px;
     font-size: 18px;
     background-color:lightblue;
@@ -91,7 +94,7 @@
 .sub-btn:hover {
     background-color: #008CBA;
     color: white;
-    transition-duration: 0.4s;
+    transition-duration: 0.3s;
 }
 .sub-btn:active {
     box-shadow: 0 3px 6px #666;

@@ -5,6 +5,15 @@ $(document).ready(function() {
 	$("#form-gif-request").submit(fetchAndDisplayGif); // in other words, when the form is submitted, fetchAndDisplayGif() will be executed
 });
 
+$(document).bind("ajaxStart", function() {
+	$("#feedback").text("Loading...");
+	setGifLoadedStatus(false);
+});
+
+$("#submit").bind("click", function() {
+	$(this).toggleClass("active");
+});
+
 /**
  * sends an asynchronous request to Giphy.com aksing for a random GIF using the
  * user's search term (along with "jackson 5")
@@ -17,7 +26,6 @@ function fetchAndDisplayGif(event) {
 	event.preventDefault();
 
 	var captcha = $("#captcha").val();
-	console.log(captcha);
 
 	if (captcha == 5) {
 		if ($("#caperror").is(":visible")) {
@@ -59,16 +67,9 @@ function fetchAndDisplayGif(event) {
 				setGifLoadedStatus(false);
 			},
 		});
-
-		// TODO
-		// give the user a "Loading..." message while they wait
-		$(document).bind("ajaxStart", function() {
-			$("#feedback").text("Loading...");
-			setGifLoadedStatus(false);
-		});
+		
     }
     else {
-        console.log("Validation Failed");
 		$("#caperror")
             .text("NO GIF FOR YOU!")
             .css("color", "red")
